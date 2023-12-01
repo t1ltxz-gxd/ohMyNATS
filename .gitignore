@@ -1,4 +1,7 @@
 .idea/
+# Makefile build
+./.bin/app/
+
 ### VisualStudioCode template
 .vscode/*
 !.vscode/settings.json
