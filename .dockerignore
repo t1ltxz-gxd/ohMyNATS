@@ -1,0 +1,9 @@
+# ignore all files
+*
+
+!cmd/**
+!internal/**
+!pkg/**
+
+!go.mod
+!go.sum
