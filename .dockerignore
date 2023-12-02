@@ -4,6 +4,7 @@
 !cmd/**
 !internal/**
 !pkg/**
+!config/**
 
 !go.mod
 !go.sum

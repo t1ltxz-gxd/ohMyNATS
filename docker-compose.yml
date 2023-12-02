@@ -1,0 +1,81 @@
+version: "3"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: oh_my_nats_app
+    tty: true
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+        window: 20s
+    env_file:
+      - .env
+    networks:
+      - backend
+    depends_on:
+      - postgres
+      - redis
+      - nats
+
+  postgres:
+    image: postgres:alpine3.18
+    container_name: oh_my_nats_postgres
+    restart: always
+    env_file:
+      - .env
+    environment:
+      - POSTGRES_PASSWORD=${PG_PASS}
+      - POSTGRES_USER=${PG_USER}
+      - POSTGRES_DB=${PG_DB}
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+    expose:
+      - ${PG_PORT}
+    ports:
+      - ${PG_PORT}:${PG_PORT}
+    networks:
+      - backend
+
+  redis:
+    image: redis:7.0.9-alpine3.18
+    container_name: oh_my_nats_redis
+    env_file:
+      - .env
+    volumes:
+      - ./data/redis:/data
+      - ./conf/redis/redis.conf:/usr/local/etc/redis/redis.conf
+    command: redis-server /usr/local/etc/redis/redis.conf --requirepass ${REDIS_PASS} --maxmemory 64M --maxmemory-policy volatile-lru
+    ports:
+      - "6379:6379"
+    expose:
+      - 6379
+    networks:
+      - backend
+
+  nats-streaming:
+    image: nats-streaming:0.25-alpine3.18
+    container_name: oh_my_nats_streaming
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - ./data:/data
+      - ./config:/config
+    ports:
+      - "4222:4222"
+      - "8222:8222"
+    expose:
+      - 4222
+      - 8222
+    command: ["nats-streaming-server", "-user", "${NATS_USER}", "-pass", "${NATS_PASS}"]
+
+
+
+
+networks:
+  backend:
+    driver: bridge
