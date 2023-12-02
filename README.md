@@ -1,6 +1,5 @@
-<div>
-[![Preview](https://nats.io/img/logos/nats-horizontal-color.png)](https://github.com/t1ltxz-gxd/ohMyNATS)
-</div>
+[![Preview](public/preview.png)](https://github.com/t1ltxz-gxd/ohMyNATS)
+
 
 # oh My NATS 
 [![Stars](https://custom-icon-badges.demolab.com/github/stars/t1ltxz-gxd/ohMyNATS?logo=star)](https://github.com/t1ltxz-gxd/ohMyNATS/stargazers')
