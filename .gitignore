@@ -1,6 +1,9 @@
+data/**
 .idea/
 # Makefile build
 ./.bin/app/
+# Secrets
+*.env
 
 ### VisualStudioCode template
 .vscode/*
@@ -187,3 +190,4 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+!/.env
