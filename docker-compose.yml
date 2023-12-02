@@ -19,7 +19,7 @@ services:
     depends_on:
       - postgres
       - redis
-      - nats
+      - nats-streaming
 
   postgres:
     image: postgres:alpine3.18
@@ -41,13 +41,13 @@ services:
       - backend
 
   redis:
-    image: redis:7.0.9-alpine3.18
+    image: redis:7.0.9-alpine3.17
     container_name: oh_my_nats_redis
     env_file:
       - .env
     volumes:
       - ./data/redis:/data
-      - ./conf/redis/redis.conf:/usr/local/etc/redis/redis.conf
+      - ./config/redis/redis.conf:/usr/local/etc/redis/redis.conf
     command: redis-server /usr/local/etc/redis/redis.conf --requirepass ${REDIS_PASS} --maxmemory 64M --maxmemory-policy volatile-lru
     ports:
       - "6379:6379"
