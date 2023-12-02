@@ -15,6 +15,6 @@ FROM alpine
 
 COPY --from=builder /usr/local/src/bin/app /usr/bin
 
-COPY config /config
+COPY config/config.yml /config/config.yml
 
 CMD ["/usr/bin/app"]
