@@ -3,7 +3,7 @@ data/**
 # Makefile build
 ./.bin/app/
 # Secrets
-*.env
+/.env
 
 ### VisualStudioCode template
 .vscode/*
@@ -189,5 +189,3 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
-
-!/.env
