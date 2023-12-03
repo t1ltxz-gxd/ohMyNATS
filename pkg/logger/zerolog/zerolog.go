@@ -1,8 +1,9 @@
-package logger
+package zerolog
 
 import (
 	"github.com/rs/zerolog"
 	"os"
+	"strings"
 	"time"
 )
 
@@ -12,10 +13,10 @@ const (
 	envProd  = "prod"
 )
 
-func SetupLogger(env string) zerolog.Logger {
+func LoggerBuilder(env string) zerolog.Logger {
 	zerolog.TimeFieldFormat = zerolog.TimeFormatUnix
 	var logger *zerolog.Logger
-	switch env {
+	switch strings.ToLower(env) {
 	case envLocal:
 		logger := zerolog.New(zerolog.ConsoleWriter{Out: os.Stdout, TimeFormat: time.RFC3339}).
 			Level(zerolog.TraceLevel).With().Timestamp().Logger()
