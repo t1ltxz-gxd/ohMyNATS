@@ -48,7 +48,7 @@ services:
     volumes:
       - ./data/redis:/data
       - ./config/redis/redis.conf:/usr/local/etc/redis/redis.conf
-    command: redis-server /usr/local/etc/redis/redis.conf --requirepass ${REDIS_PASS} --maxmemory 64M --maxmemory-policy volatile-lru
+    command: redis-server /usr/local/etc/redis/redis.conf --requirepass ${REDIS_PASS:?REDIS_PASS is not set} --maxmemory 64M --maxmemory-policy volatile-lru
     ports:
       - "6379:6379"
     expose:
@@ -71,9 +71,7 @@ services:
     expose:
       - 4222
       - 8222
-    command: ["nats-streaming-server", "-user", "${NATS_USER}", "-pass", "${NATS_PASS}"]
-
-
+    command: ["nats-streaming-server", "-user", "${NATS_USER}", "-pass", "${NATS_PASS}", "--cluster_id", "wildberries"]
 
 
 networks:
