@@ -1,10 +1,16 @@
 # ignore all files
 *
 
+#entry point
 !cmd/**
+# internal services
 !internal/**
+# packages
 !pkg/**
+#config files
 !config/**
 
 !go.mod
 !go.sum
+
+!Makefile
