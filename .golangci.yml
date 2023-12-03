@@ -1,0 +1,9 @@
+# https://golangci-lint.run/usage/configuration/
+
+linters:
+  enable:
+    - gofmt
+
+linter-settings:
+  lll:
+    line-length: 120
