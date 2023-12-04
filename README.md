@@ -21,8 +21,13 @@ go build
 ## ⚙ Configuration
 Rename `.env.example` to `.env` and fill in the values.
 
+Open `config/config.yml` and fill in the values
+
 ## 🚀 Launch
-Run `go run cmd/app/main.go` or `make app`.
+Run `go run cmd/app/main.go` or `make run`.
+
+## 🧹 Linters
+Run `golangci-lint run ./... --config=./.golangci.yml` or `make lint`.
 ___
 
 ## 🌐 Deployment
