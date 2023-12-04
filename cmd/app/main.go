@@ -1,5 +1,11 @@
 package main
 
+import (
+	"ohMyNATS/internal/app"
+	"ohMyNATS/internal/config"
+)
+
 func main() {
-	// todo: Create an application
+	cfg := config.InitConfig()
+	app.Serve(cfg.Env, cfg.BackEndPort)
 }
