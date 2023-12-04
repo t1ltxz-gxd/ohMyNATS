@@ -1,20 +1,2 @@
 ENV: local # local, dev, prod
-dbms:
-  redis:
-    host: localhost
-    port: 6379
-    user: ""
-    password: ""
-    db: 0
-    protocol: 3
-  postgres:
-    host: localhost
-    port: 5432
-    user: root
-    password: root
-    name: app
-http_server:
-  host: localhost
-  port: 8080
-  timeout: 4s
-  idle_timeout: 60s
+BACKEND_PORT: 8080
