@@ -71,7 +71,7 @@ services:
     expose:
       - 4222
       - 8222
-    command: ["nats-streaming-server", "-user", "${NATS_USER}", "-pass", "${NATS_PASS}", "--cluster_id", "wildberries"]
+    command: ["nats-streaming-server", "-user", "${NATS_USER}", "-pass", "${NATS_PASS}", "-cid", "${CLUSTER_ID}"]
 
 
 networks:

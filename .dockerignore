@@ -9,8 +9,11 @@
 !pkg/**
 #config files
 !config/**
+#env file
+!.env
 
 !go.mod
 !go.sum
+
 
 !Makefile

@@ -17,4 +17,6 @@ COPY --from=builder /usr/local/src/bin/app /usr/bin
 
 COPY config/config.yml /config/config.yml
 
+COPY .env .
+
 CMD ["/usr/bin/app"]
