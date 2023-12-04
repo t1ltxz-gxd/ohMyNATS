@@ -1,5 +1,5 @@
 DC = docker-compose
-COMPOSE_FILE = docker-compose.yaml
+COMPOSE_FILE = docker-compose.yml
 
 .PHONY: build, run, drop-all, all, logs
 
