@@ -1,4 +1,4 @@
-module ohMyNATS
+module go.t1ltxz.ninja/ohMyNATS
 
 go 1.21.4
 toolchain go1.24.1
